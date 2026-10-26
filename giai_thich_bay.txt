@@ -1,0 +1,3 @@
+sudo systemctl restart nginx: Lệnh này thực hiện thao tác "chặt đứt". Nó "giết" ngay lập tức toàn bộ tiến trình Nginx đang chạy rồi mới khởi động tiến trình mới. Nếu có 100 khách hàng đang điền form thanh toán, tải ảnh hay xem sản phẩm ngay tại giây phút đó, kết nối của họ sẽ bị đứt cái phụp, website báo lỗi (downtime).
+sudo systemctl reload nginx (hoặc sudo nginx -s reload): Đây là nạp lại cấu hình không gián đoạn (Graceful reload). Nginx sẽ đọc cấu hình mới và tạo ra các tiến trình công nhân (worker) mới để phục vụ các khách truy cập mới. Các khách truy cập cũ đang dở dang vẫn được phục vụ bởi các tiến trình cũ cho đến khi hoàn thành xong request, rồi tiến trình cũ mới nhẹ nhàng tự tắt. Khách hàng không hề biết bạn vừa sửa server.
+
